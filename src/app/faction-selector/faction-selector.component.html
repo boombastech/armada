@@ -1,0 +1,7 @@
+<div id="faction-selector">
+  <ul>
+    <li *ngFor="let faction of factions">
+      <a [routerLink]="['/ships', faction.name]">{{faction.name}}</a>
+    </li>
+  </ul>
+</div>

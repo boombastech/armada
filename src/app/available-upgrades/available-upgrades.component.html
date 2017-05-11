@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let upgrade of upgrades" (click)="assignUpgrade(upgrade)">
+    {{ upgrade.name }} ({{upgrade.cost}})
+  </li>
+</ul>

@@ -1,0 +1,10 @@
+<div>
+  <span>{{ chosenShip.ship.name }}</span>
+  (<span>{{chosenShip.totalCost()}}</span>)
+  <ul>
+    <li *ngFor="let upgradeSlot of chosenShip.upgradeSlots">
+      <app-chosen-ship-upgrade [upgradeSlot]="upgradeSlot">
+      </app-chosen-ship-upgrade>
+    </li>
+  </ul>
+</div>

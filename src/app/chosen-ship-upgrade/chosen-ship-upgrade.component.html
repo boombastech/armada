@@ -1,0 +1,8 @@
+<span (click)="togglePossibleUpgrades()">
+  {{ upgradeSlot.upgradeType.name }}
+  </span>-
+<span *ngIf="upgradeSlot.chosenUpgrade">{{upgradeSlot.chosenUpgrade.name}}<button (click)="upgradeSlot.removeUpgrade()">x</button></span>
+<span *ngIf="!upgradeSlot.chosenUpgrade">empty</span>
+
+<app-available-upgrades [upgradeType]="upgradeSlot" (closeTrigger)="closeUpgrade($event)" *ngIf="showUpgrades">
+</app-available-upgrades>
