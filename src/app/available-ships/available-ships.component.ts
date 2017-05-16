@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ShipFilter, StubAvailableShipService} from './available-ships.service';
 import {ShipType} from '../models/ShipType';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Ship} from '../models/Ship';
-import {FleetBuilderService} from '../fleet-builder/fleet-builder.service';
 import {Faction, FactionsService} from '../factions.service';
 
 @Component({
@@ -11,29 +10,28 @@ import {Faction, FactionsService} from '../factions.service';
   templateUrl: './available-ships.component.html',
   styleUrls: ['./available-ships.component.css']
 })
-export class AvailableShipComponent implements OnInit {
+export class AvailableShipsComponent implements OnInit {
 
   private shipService: StubAvailableShipService;
   private router: Router;
   private route: ActivatedRoute;
-  private fleetBuilderService: FleetBuilderService;
 
   ships: ShipType[];
   private factionsService: FactionsService;
 
+  @Output() public shipSelectedEvent: EventEmitter<Ship> = new EventEmitter();
+
   constructor(shipService: StubAvailableShipService,
               router: Router, route: ActivatedRoute,
-              fleetBuilderService: FleetBuilderService,
               factionsService: FactionsService) {
     this.shipService = shipService;
     this.router = router;
     this.route = route;
-    this.fleetBuilderService = fleetBuilderService;
     this.factionsService = factionsService;
   }
 
-  addShip(ship: Ship) {
-    this.fleetBuilderService.addShip(ship);
+  shipSelected(ship: Ship) {
+    this.shipSelectedEvent.emit(ship);
   }
 
   ngOnInit() {

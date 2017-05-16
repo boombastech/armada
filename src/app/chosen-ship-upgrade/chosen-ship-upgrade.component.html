@@ -1,6 +1,6 @@
 <span (click)="togglePossibleUpgrades()">
   {{ upgradeSlot.upgradeType.name }}
-  </span>-
+</span>-
 <span *ngIf="upgradeSlot.chosenUpgrade">{{upgradeSlot.chosenUpgrade.name}}<button (click)="upgradeSlot.removeUpgrade()">x</button></span>
 <span *ngIf="!upgradeSlot.chosenUpgrade">empty</span>
 

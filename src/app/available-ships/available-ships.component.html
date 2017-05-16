@@ -2,8 +2,8 @@
   <li *ngFor="let shipType of ships">
     {{shipType.name}}
     <ul>
-      <li *ngFor="let ship of shipType.ships" (click)="addShip(ship)" >
-        {{ ship.name }} (<span>{{ship.cost}}</span>)
+      <li *ngFor="let ship of shipType.ships" >
+        <app-available-ship [ship]='ship' (shipSelected)="shipSelected($event)"></app-available-ship>
       </li>
     </ul>
   </li>

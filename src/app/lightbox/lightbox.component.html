@@ -1,0 +1,12 @@
+<div *ngIf="showTrigger">
+  <div class="header">
+    <span>{{ title }}</span>
+  </div>
+  <div class="content">
+    <ng-content select=".content"></ng-content>
+  </div>
+  <div class="footer">
+    <button (click)="confirm()">{{confirmText}}</button>
+    <button (click)="cancel()">{{cancelText}}</button>
+  </div>
+</div>

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  trigger = true;
+
+  public confirmTrigger(event: any) {
+    this.trigger = false;
+  }
 }

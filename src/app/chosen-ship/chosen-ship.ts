@@ -1,17 +1,5 @@
-import {Injectable} from '@angular/core';
 import {Ship} from '../models/Ship';
-import {UpgradeSlot} from '../models/UpgradeSlot';
-
-@Injectable()
-export class FleetBuilderService {
-
-  ships: ChosenShip[] = [];
-
-  addShip(ship: Ship) {
-    this.ships.push(new ChosenShip(ship));
-  }
-}
-
+import {UpgradeSlot} from 'app/models/UpgradeSlot';
 export class ChosenShip {
   ship: Ship;
   upgradeSlots: UpgradeSlot[];

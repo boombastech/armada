@@ -1,6 +1,7 @@
 <div>
   <span>{{ chosenShip.ship.name }}</span>
   (<span>{{chosenShip.totalCost()}}</span>)
+  <button (click)="remove()">X</button>
   <ul>
     <li *ngFor="let upgradeSlot of chosenShip.upgradeSlots">
       <app-chosen-ship-upgrade [upgradeSlot]="upgradeSlot">

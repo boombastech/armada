@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ChosenShip, FleetBuilderService} from './fleet-builder.service';
+import {Fleet} from './Fleet';
+import {Ship} from '../models/Ship';
+import {ChosenShip} from 'app/chosen-ship/chosen-ship';
 
 @Component({
   selector: 'app-fleet-builder',
@@ -7,15 +9,19 @@ import {ChosenShip, FleetBuilderService} from './fleet-builder.service';
   styleUrls: ['./fleet-builder.component.css']
 })
 export class FleetBuilderComponent implements OnInit {
-  ships: ChosenShip[];
+  public fleet: Fleet = new Fleet();
 
-  private fleetBuilderService: FleetBuilderService;
-
-  constructor(fleetBuilderService: FleetBuilderService) {
-    this.fleetBuilderService = fleetBuilderService;
+  constructor() {
   }
 
   ngOnInit() {
-    this.ships = this.fleetBuilderService.ships;
+  }
+
+  public addShip(ship: Ship) {
+    this.fleet.addShip(ship);
+  }
+
+  public removeShip(ship: ChosenShip) {
+    this.fleet.removeShip(ship);
   }
 }

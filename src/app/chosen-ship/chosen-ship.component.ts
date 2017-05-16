@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ChosenShip} from '../fleet-builder/fleet-builder.service';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChosenShip} from './chosen-ship';
 
 @Component({
   selector: 'app-chosen-ship',
@@ -10,7 +10,14 @@ export class ChosenShipComponent implements OnInit {
   @Input()
   chosenShip: ChosenShip;
 
+  @Output()
+  removeShip: EventEmitter<ChosenShip> = new EventEmitter();
+
   constructor() {
+  }
+
+  public remove() {
+    this.removeShip.emit(this.chosenShip);
   }
 
   ngOnInit() {
