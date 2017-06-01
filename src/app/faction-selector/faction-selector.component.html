@@ -1,7 +1,10 @@
 <div id="faction-selector">
+  <h1>Factions:</h1>
   <ul>
     <li *ngFor="let faction of factions">
-      <a [routerLink]="['/ships', faction.name]">{{faction.name}}</a>
+      <a [routerLink]="['/ships', faction.name]">
+        <img class="faction-logo" src="assets/images/factions/{{faction.name}}.jpg" />
+      </a>
     </li>
   </ul>
 </div>

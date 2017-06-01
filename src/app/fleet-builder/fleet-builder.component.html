@@ -1,7 +1,13 @@
-<app-ship (shipSelectedEvent)="addShip($event)"></app-ship>
+<app-fleet-builder-nav [fleet]="fleet"></app-fleet-builder-nav>
 
-<span>Total Fleet Cost: {{ fleet.points() }}</span>
+<div id="fleet-builder-container">
+  <app-ship (shipSelectedEvent)="addShip($event)"></app-ship>
 
-<div *ngFor="let ship of fleet.ships">
-  <app-chosen-ship [chosenShip]="ship" (removeShip)="removeShip($event)"></app-chosen-ship>
+  <div id="fleet-builder">
+    <h1>Current Fleet</h1>
+
+    <div *ngFor="let ship of fleet.ships">
+      <app-chosen-ship [chosenShip]="ship" (removeShip)="removeShip($event)"></app-chosen-ship>
+    </div>
+  </div>
 </div>

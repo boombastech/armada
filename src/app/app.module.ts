@@ -16,6 +16,10 @@ import {UpgradeService} from './upgrade.service';
 import {AvailableUpgradesComponent} from './available-upgrades/available-upgrades.component';
 import {LightboxComponent} from './lightbox/lightbox.component';
 import {AvailableShipComponent} from 'app/available-ship/available-ship.component';
+import {FleetValidationService} from './fleet-builder/fleet-validation.service';
+import { ValidationResultsComponent } from './validation-results/validation-results.component';
+import { AvailableShipTypeComponent } from './available-ship-type/available-ship-type.component';
+import { FleetBuilderNavComponent } from './fleet-builder-nav/fleet-builder-nav.component';
 
 const appRoutes: Routes = [
   {
@@ -45,7 +49,10 @@ const appRoutes: Routes = [
     ChosenShipComponent,
     ChosenShipUpgradeComponent,
     AvailableUpgradesComponent,
-    LightboxComponent
+    LightboxComponent,
+    ValidationResultsComponent,
+    AvailableShipTypeComponent,
+    FleetBuilderNavComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,8 @@ const appRoutes: Routes = [
   providers: [
     StubAvailableShipService,
     FactionsService,
-    UpgradeService
+    UpgradeService,
+    FleetValidationService
   ],
   bootstrap: [AppComponent]
 })

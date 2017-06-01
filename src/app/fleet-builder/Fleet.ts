@@ -1,10 +1,14 @@
 import {Ship} from '../models/Ship';
 import {ChosenShip} from '../chosen-ship/chosen-ship';
+import {ValidationResults} from './fleet-validation.service';
+import {Faction} from '../factions.service';
 export class Fleet {
+  name = 'Unnamed Fleet';
   ships: ChosenShip[] = [];
-  private squadrons: any[] = [];
+  squadrons: Squadron[] = [];
+  validation: ValidationResults;
+  fleetRules = new FleetRules();
 
-  private name: string;
   public points(): number {
     let cost = 0;
     this.ships.map(ship => ship.totalCost()).forEach(points => cost += points);
@@ -24,6 +28,14 @@ export class Fleet {
   }
 }
 
+export class SquadronType {
+  constructor(public name: string, public faction: Faction, public squadrons: Squadron[]) {}
+}
+
 export class Squadron {
-  public cost: number;
+  constructor(public name: string, public cost: number, public unique: boolean) {}
+}
+
+export class FleetRules {
+  maxPoints = 400;
 }

@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UpgradeFilter, UpgradeService} from '../upgrade.service';
-import {Upgrade} from '../models/Upgrades';
+import {Upgrade} from '../models/upgrade';
 import {UpgradeSlot} from '../models/UpgradeSlot';
+import {Faction} from '../factions.service';
 
 @Component({
   selector: 'app-available-upgrades',
@@ -28,6 +29,6 @@ export class AvailableUpgradesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.upgrades = this.upgradeService.getUpgrade(new UpgradeFilter(this.upgradeType.upgradeType));
+    this.upgrades = this.upgradeService.getUpgrade(new UpgradeFilter(this.upgradeType.upgradeType, new Faction('Imperial', 'imperial')));
   }
 }

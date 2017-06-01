@@ -6,8 +6,8 @@ export class FactionsService {
 
   constructor() {
     this.factions = [
-      new Faction('Imperial'),
-      new Faction('Rebel')
+      new Faction('Imperial', 'imperial'),
+      new Faction('Rebel', 'rebel')
     ];
   }
 
@@ -26,9 +26,7 @@ export class FactionsService {
 }
 
 export class Faction {
-  name: string;
 
-  constructor(name: string) {
-    this.name = name;
+  constructor(public displayName: string, public name: string) {
   }
 }

@@ -1,0 +1,28 @@
+#logo {
+  background-color: rosybrown;
+  width: 100%;
+  height: 80px;
+  padding: 0px;
+  margin: 0px;
+}
+
+#logo h1 {
+  margin: 0px;
+  padding: 0px;
+}
+
+nav {
+  background-color: lavender;
+  width: 100%;
+  height: 60px;
+}
+
+nav ul {
+  margin: 0px;
+  display: flex;
+}
+
+nav ul li {
+  width: 120px;
+  list-style: none;
+}

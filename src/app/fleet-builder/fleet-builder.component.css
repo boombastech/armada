@@ -1,0 +1,9 @@
+#fleet-builder-container {
+  display: flex;
+  width: 100%;
+}
+
+#fleet-builder {
+  flex-basis: 700px;
+  border: 1px dashed red;
+}

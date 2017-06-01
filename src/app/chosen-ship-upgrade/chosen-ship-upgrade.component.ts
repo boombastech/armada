@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UpgradeSlot} from '../models/UpgradeSlot';
 import {UpgradeFilter, UpgradeService} from '../upgrade.service';
-import {Upgrade} from '../models/Upgrades';
+import {Upgrade} from '../models/upgrade';
 
 @Component({
   selector: 'app-chosen-ship-upgrade',
@@ -31,6 +31,6 @@ export class ChosenShipUpgradeComponent implements OnInit {
 
   public ngOnInit() {
     console.log(this.upgradeSlot.upgradeType.name);
-    this.possibleUpgrades = this.upgradeService.getUpgrade(new UpgradeFilter(this.upgradeSlot.upgradeType));
+    this.possibleUpgrades = this.upgradeService.getUpgrade(new UpgradeFilter(this.upgradeSlot.upgradeType, null));
   }
 }

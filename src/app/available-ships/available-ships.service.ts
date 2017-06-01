@@ -7,7 +7,7 @@ import {UpgradeType} from '../upgrade-type.service';
 @Injectable()
 export class StubAvailableShipService implements AvailableShipService {
 
-  ships: ShipType[];
+  public ships: ShipType[];
 
   constructor() {
     this.ships = this.initShips();
@@ -20,7 +20,9 @@ export class StubAvailableShipService implements AvailableShipService {
   }
 
   public getShips(shipFilter: ShipFilter): ShipType[] {
-    return this.ships.filter(ship => ship.faction.name === shipFilter.faction.name);
+    return this.ships.filter(ship => {
+      return ship.faction.name === shipFilter.faction.name;
+    });
   }
 }
 
@@ -36,10 +38,10 @@ export interface AvailableShipService {
   getShips(shipFilter: ShipFilter): ShipType[];
 }
 
-function createISDShipType() {
+function createISDShipType(): ShipType {
   const shipType = new ShipType(
     'ISD',
-    new Faction('Imperial'),
+    new Faction('Imperial', 'imperial'),
     [
       new Ship(
         'ISD Class I',
@@ -63,10 +65,10 @@ function createISDShipType() {
   return shipType;
 }
 
-function createGladiatorShipType() {
+function createGladiatorShipType(): ShipType {
   const shipType = new ShipType(
     'Gladiator',
-    new Faction('Imperial'),
+    new Faction('Imperial', 'imperial'),
     [
       new Ship(
         'Gladiator Class I',

@@ -1,0 +1,8 @@
+.faction-logo {
+  height: 300px;
+  width: 300px;
+}
+#faction-selector ul li {
+  float: left;
+  list-style: none;
+}
