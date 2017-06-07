@@ -1,0 +1,6 @@
+<span (click)="toggleShow = !toggleShow">{{ shipType.name }}</span>
+<ul *ngIf="toggleShow">
+  <li *ngFor="let ship of shipType.ships">
+    <app-available-ship [ship]='ship' (shipSelected)="shipSelected($event)"></app-available-ship>
+  </li>
+</ul>

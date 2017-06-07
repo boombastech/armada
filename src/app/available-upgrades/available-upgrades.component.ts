@@ -3,6 +3,7 @@ import {UpgradeFilter, UpgradeService} from '../upgrade.service';
 import {Upgrade} from '../models/upgrade';
 import {UpgradeSlot} from '../models/UpgradeSlot';
 import {Faction} from '../factions.service';
+import {FleetValidationService} from '../fleet-builder/fleet-validation.service';
 
 @Component({
   selector: 'app-available-upgrades',
@@ -10,7 +11,6 @@ import {Faction} from '../factions.service';
   styleUrls: ['./available-upgrades.component.css']
 })
 export class AvailableUpgradesComponent implements OnInit {
-  private upgradeService: UpgradeService;
 
   @Input()
   public upgradeType: UpgradeSlot;
@@ -19,7 +19,7 @@ export class AvailableUpgradesComponent implements OnInit {
   public closeTrigger = new EventEmitter();
   public upgrades: Upgrade[];
 
-  constructor(upgradeService: UpgradeService) {
+  constructor(private upgradeService: UpgradeService, private fleetValidationService: FleetValidationService) {
     this.upgradeService = upgradeService;
   }
 

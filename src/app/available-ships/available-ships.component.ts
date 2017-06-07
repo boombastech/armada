@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ShipFilter, StubAvailableShipService} from './available-ships.service';
 import {ShipType} from '../models/ShipType';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Ship} from '../models/Ship';
 import {Faction, FactionsService} from '../factions.service';
 
@@ -13,7 +13,6 @@ import {Faction, FactionsService} from '../factions.service';
 export class AvailableShipsComponent implements OnInit {
 
   private shipService: StubAvailableShipService;
-  private router: Router;
   private route: ActivatedRoute;
 
   ships: ShipType[];
@@ -22,10 +21,9 @@ export class AvailableShipsComponent implements OnInit {
   @Output() public shipSelectedEvent: EventEmitter<Ship> = new EventEmitter();
 
   constructor(shipService: StubAvailableShipService,
-              router: Router, route: ActivatedRoute,
+              route: ActivatedRoute,
               factionsService: FactionsService) {
     this.shipService = shipService;
-    this.router = router;
     this.route = route;
     this.factionsService = factionsService;
   }

@@ -1,0 +1,10 @@
+<div id="fleet-builder-nav">
+  <span *ngIf="!fleetNameEdit; else editFleetName" (click)="fleetNameEdit = true">{{fleet.name}}</span>
+  <span [ngClass]="{'invalid': !fleet.validation.pointsValidation.valid}"><span>{{ fleet.points() }}</span> points</span>
+  <button>Save</button>
+  <button>Cancel</button>
+</div>
+
+<ng-template #editFleetName>
+  <input type="text" [(ngModel)]="fleet.name" (blur)="fleetNameEdit = false" autofocus="autofocus">
+</ng-template>
